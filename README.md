@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏢 Physical AI EcoLoop
+# 🏢 Eco-Loop Physical AI
 
 ### **Autonomous Cyber-Physical Building Management System (BMS)**
 
