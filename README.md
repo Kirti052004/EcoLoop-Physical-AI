@@ -17,6 +17,8 @@
 
 ---
 
+![EcoLoop Smart Building Agent Dashboard Preview](./docs/dashboard_preview.png)
+
 </div>
 
 ## 📌 Project Overview
@@ -133,6 +135,7 @@ Eco-Loop-Building-Agents/
 │       ├── index.html                # Executive dashboard UI template
 │       └── styles.css                # Classic High-Contrast styling stylesheet
 ├── docs/                             # Submission Documentation & Artifacts
+│   ├── dashboard_preview.png         # Executive Dashboard UI Preview Image
 │   ├── poc_demonstration_video_script.md # 3-Minute Video Script (Deliverable 5)
 │   ├── presentation_deck.md          # Solution Presentation Slide Deck (Deliverable 6)
 │   └── system_architecture.md        # Technical System Architecture Report (Deliverable 4)
