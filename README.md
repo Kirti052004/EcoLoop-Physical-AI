@@ -8,12 +8,9 @@
 [![Python](https://img.shields.io/badge/Python-3.14-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Model Context Protocol](https://img.shields.io/badge/MCP-Protocol-06B6D4?style=for-the-badge&logo=json&logoColor=white)](https://modelcontextprotocol.io/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.140-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![Open-Source LLM](https://img.shields.io/badge/OSS_LLM-Llama_3_/_Qwen-orange?style=for-the-badge&logo=meta&logoColor=white)](https://ollama.ai/)
-[![ASHRAE 55](https://img.shields.io/badge/ASHRAE_55-PMV_Comfort-10B981?style=for-the-badge)](https://www.ashrae.org/)
+
 
 **EcoLoop Physical AI** is an autonomous cyber-physical Building Management System (BMS) platform. By pairing the **EnergyPlus physics simulation engine** with an **Open-Source LLM Cognitive Agent** via the **Model Context Protocol (MCP)**, EcoLoop transforms passive building structures into active, self-correcting agents capable of continuous, real-time energy, carbon, and thermal comfort optimization.
-
-[**System Architecture**](./docs/system_architecture.md) · [**Presentation Deck**](./docs/presentation_deck.md) · [**PoC Video Script**](./docs/poc_demonstration_video_script.md)
 
 ---
 
@@ -28,18 +25,18 @@ Buildings account for approximately **40% of global energy consumption** and rem
 **EcoLoop Physical AI** solves this critical inefficiency by constructing an automated closed-loop feedback pipeline:
 - **Continuous Feedback**: Ingests real-time building physics telemetry (zone mean air temperature, relative humidity, HVAC power kW, and Fanger PMV comfort indices) directly from EnergyPlus.
 - **Cognitive Reasoning**: Open-Source LLMs (via MCP tools) evaluate telemetry against human comfort limits, dynamic grid carbon intensity ($gCO_2/kWh$), and peak demand pricing.
-- **Forward Control Injection**: Calculates dynamic Energy Conservation Measures (ECMs)—such as pre-cooling, adaptive setpoint widening, and carbon-aware peak load shedding—and injects setpoint updates directly back into active EnergyPlus `.idf` models.
+- **Forward Control Injection**: Calculates dynamic Energy Conservation Measures (ECMs)—such as pre-cooling, adaptive setpoint widening, and carbon-aware peak load shedding—and injects setpoint updates directly back into active EnergyPlus .idf models.
 
 ---
 
 ## 🔥 Key Features
 
-* **⚡ Closed-Loop Control Engine**: Continuous automated feedback loop between EnergyPlus physics simulations and the AI cognitive orchestrator.
-* **🌡️ ASHRAE Standard 55 Fanger PMV Calculator**: Standalone thermal comfort engine computing Predicted Mean Vote (PMV) and Predicted Percentage Dissatisfied (PPD).
-* **🌿 Real-Time Grid Carbon Tracking**: Integrates dynamic grid emission factor signals ($gCO_2/kWh$) and Time-Of-Use (TOU) electricity pricing ($/kWh$).
-* **🤖 Model Context Protocol (MCP) Server**: Standardized MCP tool-calling architecture enabling LLMs to query telemetry, run comfort models, check grid carbon, apply ECM setpoints, and parse simulation log files.
-* **🎨 Organic Architecture Dashboard**: High-contrast, humanized executive UI built with classic typography (Times New Roman & Arial), split-view layout, Terracotta hero savings banner, and plain-language action feed.
-* **📊 Quantifiable Energy & Cost Savings**: Proves explicit percentage reductions in HVAC kWh, operational carbon emissions, and total energy expenditure while keeping occupant thermal comfort strictly within healthy bounds.
+* **Closed-Loop Control Engine**: Continuous automated feedback loop between EnergyPlus physics simulations and the AI cognitive orchestrator.
+* **ASHRAE Standard 55 Fanger PMV Calculator**: Standalone thermal comfort engine computing Predicted Mean Vote (PMV) and Predicted Percentage Dissatisfied (PPD).
+* **Real-Time Grid Carbon Tracking**: Integrates dynamic grid emission factor signals ($gCO_2/kWh$) and Time-Of-Use (TOU) electricity pricing ($/kWh$).
+* **Model Context Protocol (MCP) Server**: Standardized MCP tool-calling architecture enabling LLMs to query telemetry, run comfort models, check grid carbon, apply ECM setpoints, and parse simulation log files.
+* **Organic Architecture Dashboard**: High-contrast, humanized executive UI built with classic typography (Times New Roman & Arial), split-view layout, Terracotta hero savings banner, and plain-language action feed.
+* **Quantifiable Energy & Cost Savings**: Proves explicit percentage reductions in HVAC kWh, operational carbon emissions, and total energy expenditure while keeping occupant thermal comfort strictly within healthy bounds.
 
 ---
 
@@ -57,10 +54,10 @@ graph TD
 
 ### Step-by-Step Execution:
 1. **Telemetry Streaming**: EnergyPlus generates time-step zone temperatures, humidity, outdoor drybulb weather, and HVAC power.
-2. **MCP Tool Evaluation**: The cognitive agent invokes `evaluate_grid_emissions()` and `calculate_pmv_comfort()` to check current state.
-3. **Cognitive Strategy Selection**: Evaluates 4 core ECM strategies: `SOLAR_PRE_COOLING`, `CARBON_PEAK_SHEDDING`, `COMFORT_PROTECTION`, or `COMFORT_OPTIMAL_DEADBAND`.
-4. **Forward Control Injection**: Injects updated heating and cooling thermostat setpoints into `ai_optimized_building.idf`.
-5. **Dashboard Visualization**: Renders live energy charts, carbon savings, and plain-language timeline action logs (`[14:15] Sensor -> Action -> Impact`).
+2. **MCP Tool Evaluation**: The cognitive agent invokes evaluate_grid_emissions() and calculate_pmv_comfort() to check current state.
+3. **Cognitive Strategy Selection**: Evaluates 4 core ECM strategies: SOLAR_PRE_COOLING, CARBON_PEAK_SHEDDING, COMFORT_PROTECTION, or COMFORT_OPTIMAL_DEADBAND.
+4. **Forward Control Injection**: Injects updated heating and cooling thermostat setpoints into ai_optimized_building.idf.
+5. **Dashboard Visualization**: Renders live energy charts, carbon savings, and plain-language timeline action logs ([14:15] Sensor -> Action -> Impact).
 
 ---
 
@@ -190,7 +187,7 @@ The Model Context Protocol (MCP) server exposes 5 core tool APIs:
 - **Output**: Confirmed dynamic setpoint overrides ready for forward injection.
 
 ### 5. `parse_simulation_errors`
-- **Purpose**: Extracts severe errors, warnings, and convergence failures from EnergyPlus simulation `.err` logs.
+- **Purpose**: Extracts severe errors, warnings, and convergence failures from EnergyPlus simulation .err logs.
 - **Output**: Severe count, warning count, diagnostic summary.
 
 ---
@@ -212,7 +209,7 @@ Verification executed over a **7-Day Summer EnergyPlus Simulation Horizon (July 
 
 ### Prerequisites
 - **Python** v3.10 or higher
-- **EnergyPlus V26.1** installed locally at `C:\EnergyPlusV26-1-0`
+- **EnergyPlus V26.1** installed locally at EnergyPlusV26-1-0
 
 ### Installation & Launch
 
@@ -231,26 +228,7 @@ Verification executed over a **7-Day Summer EnergyPlus Simulation Horizon (July 
    ```bash
    python run_poc.py
    ```
-   *This command runs the EnergyPlus simulation pipeline, generates data deliverables, and automatically opens the interactive dashboard at `http://127.0.0.1:8000`.*
-
----
-
-## ⚙️ Optimization, Prompt Engineering & Security
-
-### Prompt Engineering & Latency Management
-* **Structured System Directives**: The agent prompt binds the LLM to physical boundaries, enforcing PMV compliance ($-0.5 \le PMV \le +0.5$).
-* **Prompt Latency Protection**: Includes an embedded physical decision matrix fallback to eliminate network timeouts (>0.5s) during 672-timestep batch runs.
-* **Efficient Log Parsing**: Regex-based error log filtering reduces context token overhead by **99.4%**.
-
-### Security & Robustness
-* **Path Traversal Protection**: Uses absolute project directory resolution (`BASE_DIR`) to prevent `C:\WINDOWS\system32` permission restrictions.
-* **Fail-Safe Operation**: Automatically defaults to safe comfort setpoints (20.0°C heating / 24.0°C cooling) if sensors disconnect.
-
----
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
+   This command runs the EnergyPlus simulation pipeline, generates data deliverables, and automatically opens the interactive dashboard.
 
 ---
 
