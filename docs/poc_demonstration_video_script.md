@@ -1,14 +1,15 @@
-# 🎬 PoC Demonstration Video Script & Picture Mapping Guide
+# 🎬 Honeywell Hackathon PoC Demonstration Video Script
 
+**Presenter**: Kirti Choudhary  
+**Event**: Honeywell Hackathon  
 **Project Title**: Physical AI EcoLoop Building Agent  
 **Total Video Duration**: 3 Minutes (180 Seconds)  
-**Tone**: Confident, clear, professional engineering pitch
 
 ---
 
 ## 📸 Picture & Dialogue Mapping
 
-### 🔹 SCENE 1: Overview & Quantifiable Results (0:00 – 1:00)
+### 🔹 SCENE 1: Introduction & Quantifiable Results (0:00 – 1:00)
 - 🖼️ **PICTURE TO SHOW**: **Picture 1** *(Header Bar, 4 KPI Metric Cards & Dual Charts)*
 
 ```
@@ -16,11 +17,11 @@
 ```
 
 🎙️ **EXACT VOICE-OVER DIALOGUE**:
-> *"Welcome to EcoLoop Physical AI—an autonomous cyber-physical Building Management System that transforms passive structures into active, self-correcting smart agents.*
+> *"Hello, I am Kirti Choudhary, and this is our project for the Honeywell Hackathon: **EcoLoop Physical AI**—an autonomous cyber-physical Building Management System that transforms passive structures into active, self-correcting smart agents.*
 >
 > *Traditional building controls rely on rigid, fixed schedules that fail to adapt to real-time weather changes and grid carbon intensity. EcoLoop solves this by pairing the physics-based EnergyPlus simulation engine with Open-Source LLMs using the Model Context Protocol.*
 >
-> *As you can see on our top executive dashboard, over a 7-day EnergyPlus simulation, EcoLoop achieved a 18.38% reduction in total electricity usage, cut operational carbon emissions by 19.36%, reduced electricity bills by 20.36%, and improved occupant thermal comfort to 69.8% compliance under ASHRAE Standard 55 boundaries.*
+> *As you can see on our executive dashboard, over a 7-day EnergyPlus simulation, EcoLoop achieved an **18.38% reduction in total electricity usage**, cut operational carbon emissions by **19.36%**, reduced electricity bills by **20.36%**, and improved occupant thermal comfort to **69.8% compliance** under ASHRAE Standard 55 boundaries.*
 >
 > *On the bottom left graph, notice how our Smart AI Agent line consistently operates below the rigid fixed schedule baseline while flattening peak demand spikes."*
 
@@ -38,9 +39,9 @@
 >
 > *At every simulation timestep, EnergyPlus streams sensor telemetry to our Model Context Protocol Server. The Open-Source LLM evaluates 4 dynamic variables: room temperature, occupant comfort, electricity tariffs, and grid carbon emissions.*
 >
-> *For example, when the sensor detects a solar heat load increase, the AI model immediately triggers a Pre-cooling Action—lowering the cooling setpoint to store cool thermal mass before expensive peak electricity rates begin.*
+> *For example, when the sensor detects a solar heat load increase, the AI model immediately triggers a **Pre-cooling Action**—lowering the cooling setpoint to store cool thermal mass before expensive peak electricity rates begin.*
 >
-> *When fossil peaker plants ramp up on the power grid, the AI executes a Carbon Peak Shedding Action—widening setpoint deadbands to protect both occupant comfort and the environment without requiring any human code modifications."*
+> *When fossil peaker plants ramp up on the power grid, the AI executes a **Carbon Peak Shedding Action**—widening setpoint deadbands to protect both occupant comfort and the environment without requiring any human code modifications."*
 
 ---
 
