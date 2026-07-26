@@ -1,0 +1,24 @@
+{
+  "simulation_horizon": "7-Day Summer Period (July 1 - July 7)",
+  "total_timesteps": 672,
+  "baseline": {
+    "total_hvac_kwh": 133.38,
+    "total_carbon_kg": 47.44,
+    "total_cost_usd": 26.07,
+    "pmv_comfort_compliance_pct": 35.7
+  },
+  "ai_ecoloop": {
+    "total_hvac_kwh": 108.87,
+    "total_carbon_kg": 38.25,
+    "total_cost_usd": 20.77,
+    "pmv_comfort_compliance_pct": 69.8
+  },
+  "savings": {
+    "kwh_reduction_pct": 18.38,
+    "kwh_saved_total": 24.51,
+    "carbon_reduction_pct": 19.36,
+    "carbon_saved_kg": 9.18,
+    "cost_reduction_pct": 20.36,
+    "cost_saved_usd": 5.31
+  }
+}

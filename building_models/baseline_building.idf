@@ -1,0 +1,294 @@
+! Baseline Building Model - EnergyPlus IDF (V26.1)
+! Single Zone Medium Commercial Office Building with Ideal Loads HVAC & PMV Thermal Comfort
+
+Version, 26.1;
+
+Timestep, 4;
+
+Building,
+  Baseline Office Building,
+  0.0,
+  Suburbs,
+  0.04,
+  0.004,
+  MinimalShadowing,
+  30,
+  6;
+
+HeatBalanceAlgorithm, ConductionTransferFunction;
+SurfaceConvectionAlgorithm:Inside, TARP;
+SurfaceConvectionAlgorithm:Outside, DOE-2;
+
+GlobalGeometryRules,
+  UpperLeftCorner,
+  CounterClockWise,
+  World;
+
+SimulationControl,
+  No,
+  No,
+  No,
+  No,
+  Yes;
+
+RunPeriod,
+  Summer Period,
+  7, 1, 2026,
+  7, 7, 2026,
+  Wednesday,
+  Yes, Yes, No, Yes, Yes;
+
+Site:Location,
+  San Francisco Intl AP CA USA,
+  37.62, -122.37, -8.0, 2.0;
+
+ScheduleTypeLimits, Any Number;
+ScheduleTypeLimits, Fraction, 0.0, 1.0, Continuous;
+ScheduleTypeLimits, Temperature, -60.0, 200.0, Continuous;
+ScheduleTypeLimits, ControlType, 0, 4, Discrete;
+
+! --- Schedules ---
+
+Schedule:Compact,
+  Occupancy Schedule,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00, 0.0,
+  Until: 08:00, 0.2,
+  Until: 12:00, 1.0,
+  Until: 13:00, 0.5,
+  Until: 17:00, 1.0,
+  Until: 18:00, 0.3,
+  Until: 24:00, 0.0,
+  For: Weekends Holidays AllOtherDays,
+  Until: 24:00, 0.0;
+
+Schedule:Compact,
+  Lighting Schedule,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00, 0.05,
+  Until: 18:00, 0.9,
+  Until: 24:00, 0.05,
+  For: Weekends Holidays AllOtherDays,
+  Until: 24:00, 0.05;
+
+Schedule:Compact,
+  Equipment Schedule,
+  Fraction,
+  Through: 12/31,
+  For: Weekdays,
+  Until: 07:00, 0.1,
+  Until: 18:00, 0.8,
+  Until: 24:00, 0.1,
+  For: Weekends Holidays AllOtherDays,
+  Until: 24:00, 0.1;
+
+Schedule:Compact,
+  Baseline Heating Setpoint Schedule,
+  Temperature,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00, 21.0;
+
+Schedule:Compact,
+  Baseline Cooling Setpoint Schedule,
+  Temperature,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00, 24.0;
+
+Schedule:Compact,
+  Zone Control Type Schedule,
+  ControlType,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00, 4;
+
+Schedule:Compact,
+  Activity Schedule,
+  Any Number,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00, 120.0;
+
+Schedule:Compact,
+  Work Efficiency Schedule,
+  Any Number,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00, 0.0;
+
+Schedule:Compact,
+  Work Clothing Schedule,
+  Any Number,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00, 0.8;
+
+Schedule:Compact,
+  Air Velocity Schedule,
+  Any Number,
+  Through: 12/31,
+  For: AllDays,
+  Until: 24:00, 0.15;
+
+! --- Materials & Construction ---
+
+Material:NoMass,
+  R13LAYER,
+  Rough,
+  2.29, 0.90, 0.75, 0.75;
+
+Material:NoMass,
+  R31LAYER,
+  Rough,
+  5.45, 0.90, 0.75, 0.75;
+
+Material,
+  CONCRETE_FLOOR,
+  MediumRough,
+  0.10, 1.72, 2242.0, 836.8, 0.90, 0.65, 0.65;
+
+Construction,
+  Exterior Wall Construction,
+  R13LAYER;
+
+Construction,
+  Roof Construction,
+  R31LAYER;
+
+Construction,
+  Floor Construction,
+  CONCRETE_FLOOR;
+
+! --- Zone & Nodes ---
+
+Zone,
+  Main_Office_Zone,
+  0.0, 0.0, 0.0, 0.0, 1, 1, autocalculate, autocalculate;
+
+NodeList,
+  Main_Office_Zone Inlets,
+  Main_Office Supply Air Node;
+
+! --- Zone Surfaces ---
+
+BuildingSurface:Detailed,
+  South Wall, Wall, Exterior Wall Construction, Main_Office_Zone, , Outdoors, , SunExposed, WindExposed, 0.5, 4,
+  0.0, 0.0, 3.0,
+  0.0, 0.0, 0.0,
+  10.0, 0.0, 0.0,
+  10.0, 0.0, 3.0;
+
+BuildingSurface:Detailed,
+  North Wall, Wall, Exterior Wall Construction, Main_Office_Zone, , Outdoors, , SunExposed, WindExposed, 0.5, 4,
+  10.0, 10.0, 3.0,
+  10.0, 10.0, 0.0,
+  0.0, 10.0, 0.0,
+  0.0, 10.0, 3.0;
+
+BuildingSurface:Detailed,
+  East Wall, Wall, Exterior Wall Construction, Main_Office_Zone, , Outdoors, , SunExposed, WindExposed, 0.5, 4,
+  10.0, 0.0, 3.0,
+  10.0, 0.0, 0.0,
+  10.0, 10.0, 0.0,
+  10.0, 10.0, 3.0;
+
+BuildingSurface:Detailed,
+  West Wall, Wall, Exterior Wall Construction, Main_Office_Zone, , Outdoors, , SunExposed, WindExposed, 0.5, 4,
+  0.0, 10.0, 3.0,
+  0.0, 10.0, 0.0,
+  0.0, 0.0, 0.0,
+  0.0, 0.0, 3.0;
+
+BuildingSurface:Detailed,
+  Roof Surface, Roof, Roof Construction, Main_Office_Zone, , Outdoors, , SunExposed, WindExposed, 0.0, 4,
+  0.0, 10.0, 3.0,
+  0.0, 0.0, 3.0,
+  10.0, 0.0, 3.0,
+  10.0, 10.0, 3.0;
+
+BuildingSurface:Detailed,
+  Floor Surface, Floor, Floor Construction, Main_Office_Zone, , Ground, , NoSun, NoWind, 0.0, 4,
+  0.0, 0.0, 0.0,
+  0.0, 10.0, 0.0,
+  10.0, 10.0, 0.0,
+  10.0, 0.0, 0.0;
+
+! --- Internal Gains ---
+
+People,
+  Office Occupants,
+  Main_Office_Zone,
+  Occupancy Schedule,
+  People,
+  10, , , 0.3, autocalculate, Activity Schedule, , No, EnclosureAveraged, , Work Efficiency Schedule, ClothingInsulationSchedule, , Work Clothing Schedule, Air Velocity Schedule, Fanger;
+
+Lights,
+  Office Lights,
+  Main_Office_Zone,
+  Lighting Schedule,
+  Watts/Area,
+  , 10.0, , 0.0, 0.2, 0.2, 1.0;
+
+ElectricEquipment,
+  Office Computers,
+  Main_Office_Zone,
+  Equipment Schedule,
+  Watts/Area,
+  , 12.0, , 0.0, 0.3, 0.0;
+
+! --- HVAC Equipment & Controls ---
+
+ZoneControl:Thermostat,
+  Main_Office Thermostat,
+  Main_Office_Zone,
+  Zone Control Type Schedule,
+  ThermostatSetpoint:DualSetpoint,
+  Main_Office Dual Setpoint;
+
+ThermostatSetpoint:DualSetpoint,
+  Main_Office Dual Setpoint,
+  Baseline Heating Setpoint Schedule,
+  Baseline Cooling Setpoint Schedule;
+
+ZoneHVAC:EquipmentConnections,
+  Main_Office_Zone,
+  Main_Office Equipment List,
+  Main_Office_Zone Inlets,
+  ,
+  Main_Office Zone Air Node,
+  Main_Office Return Node;
+
+ZoneHVAC:EquipmentList,
+  Main_Office Equipment List,
+  SequentialLoad,
+  ZoneHVAC:IdealLoadsAirSystem,
+  Main_Office Ideal Loads,
+  1,
+  1;
+
+ZoneHVAC:IdealLoadsAirSystem,
+  Main_Office Ideal Loads,
+  ,
+  Main_Office Supply Air Node,
+  ,
+  ,
+  50.0, 13.0, 0.015, 0.009,
+  NoLimit, , ,
+  NoLimit, , ,
+  , , None, 0.7, None, , , None, NoEconomizer;
+
+! --- Output Variables ---
+
+Output:Variable, *, Zone Mean Air Temperature, Timestep;
+Output:Variable, *, Zone Air Relative Humidity, Timestep;
+Output:Variable, *, Zone Thermal Comfort Fanger Model PMV, Timestep;
+Output:Variable, *, Zone Ideal Loads Zone Total Cooling Energy, Timestep;
+Output:Variable, *, Zone Ideal Loads Zone Total Heating Energy, Timestep;
+Output:Variable, *, Site Outdoor Air Drybulb Temperature, Timestep;
+
+Output:Table:SummaryReports, AllSummary;

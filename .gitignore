@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# EnergyPlus temporary test outputs
+test_out/
+*.audit
+*.bnd
+*.dxf
+*.eio
+*.end
+*.err
+*.eso
+*.mdd
+*.mtd
+*.rdd
+*.shd
+*.htm
+*.tab
+*.txt
+*.xml
+
+# OS
+.DS_Store
+Thumbs.db

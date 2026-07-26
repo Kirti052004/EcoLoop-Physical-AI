@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoLoop Smart Building Agent - Dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Header Bar -->
+  <header class="app-header">
+    <div class="brand-box">
+      <span class="brand-badge">PHYSICAL AI</span>
+      <h1 class="brand-title">EcoLoop Smart Building Agent</h1>
+    </div>
+    <div class="header-status-bar">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>ENERGYPLUS SIMULATION RUNNING</span>
+      </div>
+      <div class="status-pill" style="background:rgba(255,255,255,0.15)">
+        <span>ZONE: MAIN OFFICE</span>
+      </div>
+      <div class="status-pill" style="background:rgba(255,255,255,0.15)">
+        <span id="header-timestamp">07/01 14:15</span>
+      </div>
+      <button class="btn-run" onclick="triggerSimulationRun()">RUN LIVE SIMULATION</button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="dashboard-container">
+
+    <!-- Top Grid (4 KPI Metric Cards) -->
+    <section class="kpi-grid">
+      <div class="kpi-card terracotta">
+        <div class="kpi-header">Electricity Saved</div>
+        <div class="kpi-val-row">
+          <span class="kpi-number" id="kwh-pct-val">-18.4%</span>
+          <span class="kpi-badge alert" id="kwh-total-val">-24.5 kWh</span>
+        </div>
+        <div class="kpi-subtext">Less energy used compared to fixed schedule</div>
+      </div>
+
+      <div class="kpi-card sage">
+        <div class="kpi-header">Carbon Footprint Cut</div>
+        <div class="kpi-val-row">
+          <span class="kpi-number" id="carbon-pct-val">-19.4%</span>
+          <span class="kpi-badge" id="carbon-total-val">-9.2 kg CO₂</span>
+        </div>
+        <div class="kpi-subtext">Pollution avoided during high-emission hours</div>
+      </div>
+
+      <div class="kpi-card slate">
+        <div class="kpi-header">Money Saved</div>
+        <div class="kpi-val-row">
+          <span class="kpi-number" id="cost-pct-val">-20.4%</span>
+          <span class="kpi-badge" id="cost-total-val">-$5.31</span>
+        </div>
+        <div class="kpi-subtext">Reduced electricity bill during expensive peak hours</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">Occupant Comfort Score</div>
+        <div class="kpi-val-row">
+          <span class="kpi-number" id="comfort-score-val">69.8%</span>
+          <span class="kpi-badge">Healthy Range</span>
+        </div>
+        <div class="kpi-subtext">Keeps room temperature comfortable for people</div>
+      </div>
+    </section>
+
+    <!-- Charts Grid (2 Charts Side-by-Side) -->
+    <section class="charts-grid">
+      <div class="chart-card">
+        <div class="card-header-block">
+          <span class="card-header-title">Electricity Usage Comparison</span>
+          <span style="font-size:0.8rem; font-weight:bold;">Fixed Schedule vs Smart AI Agent</span>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="energyChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="card-header-block sage">
+          <span class="card-header-title">Room Comfort Index (PMV)</span>
+          <span style="font-size:0.8rem; font-weight:bold;">ASHRAE 55 Target Bounds</span>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="comfortChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Smart AI Action Feed -->
+    <section class="feed-card">
+      <div class="card-header-block sage">
+        <span class="card-header-title">Live Smart AI Action Feed</span>
+        <span style="font-size:0.8rem; font-weight:bold;">Continuous Closed-Loop Control</span>
+      </div>
+      <div class="feed-timeline" id="feed-timeline">
+        <!-- Live timeline items rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Simple Telemetry Table -->
+    <section class="table-card">
+      <div class="card-header-block">
+        <span class="card-header-title">Live Building Readings & AI Control Log</span>
+      </div>
+      <table class="simple-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Outside Temp</th>
+            <th>Fixed Temp</th>
+            <th>Smart AI Temp</th>
+            <th>Grid Carbon Level</th>
+            <th>Fixed Power (kW)</th>
+            <th>Smart Power (kW)</th>
+            <th>AI Strategy Action</th>
+          </tr>
+        </thead>
+        <tbody id="telemetry-tbody">
+          <!-- Rows inserted dynamically -->
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    EcoLoop Physical AI Smart Building Agent • EnergyPlus Physics Simulation V26.1 • Model Context Protocol (MCP) Framework
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

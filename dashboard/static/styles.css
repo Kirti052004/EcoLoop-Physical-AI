@@ -1,0 +1,321 @@
+/* EcoLoop Simple & Clean Theme - Arial & Times New Roman with High-Contrast Colors */
+
+:root {
+  --bg-canvas: #F4F1EA;          /* Warm Oat Off-white */
+  --bg-card: #FFFFFF;            /* Clean White Card */
+  --bg-card-alt: #F9F7F2;        /* Soft Cream Background */
+  --border-color: #D3CBC0;       /* Crisp Border */
+  
+  --text-primary: #1B3B2B;       /* Deep Forest Pine (Primary Text) */
+  --text-muted: #52665A;         /* Dark Eucalyptus for Secondary Text */
+  
+  --accent-sage: #2E6B52;        /* Sage Green (Active Status) */
+  --accent-terracotta: #C85A32;  /* Terracotta Coral (Savings & Alerts) */
+  --accent-slate: #2B4C5E;       /* Slate Navy Accent */
+
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-serif: "Times New Roman", Times, Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+/* Header Bar */
+.app-header {
+  background-color: var(--text-primary);
+  color: #FFFFFF;
+  padding: 1.1rem 2.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+.brand-box {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.brand-badge {
+  background-color: var(--accent-terracotta);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.35rem 0.75rem;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.header-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: var(--accent-sage);
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+.btn-run {
+  background-color: var(--accent-terracotta);
+  color: #FFFFFF;
+  border: none;
+  font-family: var(--font-sans);
+  font-weight: bold;
+  font-size: 0.85rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-run:hover {
+  background-color: #B04A24;
+}
+
+/* Main Dashboard Container */
+.dashboard-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Top KPI Metric Cards Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.kpi-card {
+  background-color: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-top: 5px solid var(--text-primary);
+  border-radius: 6px;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 2px 6px rgba(27, 59, 43, 0.04);
+}
+
+.kpi-card.terracotta { border-top-color: var(--accent-terracotta); }
+.kpi-card.sage { border-top-color: var(--accent-sage); }
+.kpi-card.slate { border-top-color: var(--accent-slate); }
+
+.kpi-header {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.kpi-val-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin: 0.4rem 0;
+}
+
+.kpi-number {
+  font-family: var(--font-sans);
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.kpi-badge {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: bold;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background-color: rgba(46, 107, 82, 0.12);
+  color: var(--accent-sage);
+}
+
+.kpi-badge.alert {
+  background-color: rgba(200, 90, 50, 0.12);
+  color: var(--accent-terracotta);
+}
+
+.kpi-subtext {
+  font-size: 0.82rem;
+  font-weight: bold;
+  color: var(--text-muted);
+}
+
+/* Charts Grid */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.chart-card {
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.card-header-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--text-primary);
+  color: #FFFFFF;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border-left: 5px solid var(--accent-terracotta);
+}
+
+.card-header-block.sage {
+  border-left-color: var(--accent-sage);
+}
+
+.card-header-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.chart-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+}
+
+/* Smart Action Feed & Logs */
+.feed-card {
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+}
+
+.feed-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 0.3rem;
+}
+
+.feed-item {
+  background-color: var(--bg-card-alt);
+  border: 1.5px solid var(--border-color);
+  border-left: 4px solid var(--accent-sage);
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.feed-item.alert {
+  border-left-color: var(--accent-terracotta);
+}
+
+.feed-time {
+  background-color: var(--text-primary);
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 0.78rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+}
+
+.feed-tag-sensor { color: var(--text-primary); font-weight: bold; }
+.feed-tag-action { color: var(--accent-sage); font-weight: bold; }
+.feed-tag-impact { color: var(--accent-terracotta); font-weight: bold; }
+
+/* Simple Telemetry Table */
+.table-card {
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  overflow: hidden;
+}
+
+.simple-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+.simple-table th {
+  background-color: var(--text-primary);
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 0.75rem 1rem;
+}
+
+.simple-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.simple-table tr:hover {
+  background-color: var(--bg-card-alt);
+}
+
+/* Footer */
+.app-footer {
+  background-color: var(--text-primary);
+  color: #E2EFE9;
+  padding: 1.1rem 2.25rem;
+  text-align: center;
+  font-size: 0.82rem;
+  margin-top: 2rem;
+}
